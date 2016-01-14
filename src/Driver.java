@@ -15,9 +15,13 @@ public class Driver
         Scanner input = new Scanner(System.in);
         BoxWriter box;
         char yesno;
+        String word;
 
         System.out.print("\nEnter in some meme text (min 3 characters): ");
-        box = new BoxWriter(input.nextLine());
+        word = input.nextLine();
+
+        System.out.print("\nAdd a label (leave blank for none): ");
+        box = new BoxWriter(word,input.nextLine());
 
         System.out.print("Copy to clipboard? (Y/N): ");
         yesno = input.next().toUpperCase().charAt(0);

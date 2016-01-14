@@ -9,6 +9,9 @@ public class BoxWriter
     public String word;
     public StringBuilder boxBuilder;
 
+    //puts a word in the center of the box
+    public String label;
+
     //spacing indicates how many spaces are between letters on horizontal lines
     public int spacing;
 
@@ -17,11 +20,17 @@ public class BoxWriter
     //is needed for the box to display correctly
     public int offset;
 
-    public BoxWriter(String s)
+    public BoxWriter(String word, String label)
     {
-        word = s;
+        this.word = word;
+        this.label = label;
         boxBuilder = new StringBuilder();
-        spacing = 2;
+
+        if(label.length() > 1)
+            spacing = (label.length() / 2);
+        else
+            spacing = 2;
+
         offset = 10;
     }
 
@@ -71,7 +80,17 @@ public class BoxWriter
             //creates square box of words on the lower half
             spaces(offset);
             boxBuilder.append(word.substring((word.length() - length), (word.length() - length + 1)));
-            spaces((word.length() * (spacing + 1)) - (spacing + 2));
+
+            //label maker
+            if((label.length() > 1) && (length - 1 == word.length() / 2))
+            {
+                spaces((((word.length() * (spacing + 1)) - (spacing + 2))/2) - (label.length()/2));
+                boxBuilder.append(label);
+                spaces((((word.length() * (spacing + 1)) - (spacing + 2))/2) - (label.length()/2));
+            }
+            else
+                spaces((word.length() * (spacing + 1)) - (spacing + 2));
+
             boxBuilder.append(word.substring(length - 1,length));
             spaces(word.length() - 2 - (word.length() - length));
 
