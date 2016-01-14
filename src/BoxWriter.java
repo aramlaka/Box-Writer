@@ -25,12 +25,7 @@ public class BoxWriter
         this.word = word;
         this.label = label;
         boxBuilder = new StringBuilder();
-
-        if(label.length() > 1)
-            spacing = (label.length() / 2);
-        else
-            spacing = 2;
-
+        spacing = 2;
         offset = 10;
     }
 
@@ -86,7 +81,22 @@ public class BoxWriter
             {
                 spaces((((word.length() * (spacing + 1)) - (spacing + 2))/2) - (label.length()/2));
                 boxBuilder.append(label);
-                spaces((((word.length() * (spacing + 1)) - (spacing + 2))/2) - (label.length()/2));
+
+                //controls spaces for varying word lengths
+                if((word.length() % 2) == 0)
+                {
+                    if ((label.length() % 2) == 1)
+                        spaces((((word.length() * (spacing + 1)) - (spacing + 2)) / 2) - (label.length() / 2) - 1);
+                    else
+                        spaces((((word.length() * (spacing + 1)) - (spacing + 2))/2) - (label.length()/2));
+                }
+                else if ((word.length() % 2) == 1)
+                {
+                    if ((label.length() % 2) == 0)
+                        spaces((((word.length() * (spacing + 1)) - (spacing + 2)) / 2) - (label.length() / 2) + 1);
+                    else
+                        spaces((((word.length() * (spacing + 1)) - (spacing + 2))/2) - (label.length()/2));
+                }
             }
             else
                 spaces((word.length() * (spacing + 1)) - (spacing + 2));
