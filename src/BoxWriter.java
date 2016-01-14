@@ -1,5 +1,7 @@
 /**
  * @author Akhil Ramlakan
+ *
+ * Stores text box
  */
 
 public class BoxWriter
@@ -33,10 +35,12 @@ public class BoxWriter
             spaces(offset);
             spaces(length);
 
+            //outputs word in reverse on top of the box
             if((length+1) == word.length())
                 spaceWords(1);
             else
             {
+                //creates edges for the top half
                 boxBuilder.append(word.substring(length,length + 1));
                 spaces(word.length() * (spacing + 1) - (spacing + 2));
                 boxBuilder.append(word.substring((word.length() - (length+1)),(word.length() - length)));
@@ -48,6 +52,7 @@ public class BoxWriter
 
             if(length == 0)
             {
+                //prints word in normal order in the middle
                 boxBuilder.append("\n");
                 spaces(offset);
                 spaceWords(0);
@@ -63,12 +68,14 @@ public class BoxWriter
 
         do
         {
+            //creates square box of words on the lower half
             spaces(offset);
             boxBuilder.append(word.substring((word.length() - length), (word.length() - length + 1)));
             spaces((word.length() * (spacing + 1)) - (spacing + 2));
             boxBuilder.append(word.substring(length - 1,length));
             spaces(word.length() - 2 - (word.length() - length));
 
+            //adds right half edges
             if(length > 1)
                 boxBuilder.append(word.substring(length - 1,length));
 
