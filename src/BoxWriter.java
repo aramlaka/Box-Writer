@@ -6,19 +6,19 @@
 
 public class BoxWriter
 {
-    public String word;
-    public StringBuilder boxBuilder;
+    private String word;
+    private StringBuilder boxBuilder;
 
     //puts a word in the center of the box
-    public String label;
+    private String label;
 
     //spacing indicates how many spaces are between letters on horizontal lines
-    public int spacing;
+    private int spacing;
 
     //offset adds x amount of spaces before each line is printed
     //when posting to some online sites, a small amount of offset
     //is needed for the box to display correctly
-    public int offset;
+    private int offset;
 
     public BoxWriter(String word, String label)
     {
