@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BoxWriterController">
+   <children>
+      <ButtonBar layoutX="406.0" layoutY="346.0" prefHeight="40.0" prefWidth="180.0" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="20.0">
+        <buttons>
+            <Button mnemonicParsing="false" onAction="#handleCopy" text="Copy" />
+            <Button mnemonicParsing="false" onAction="#handleNew" text="New" />
+        </buttons>
+      </ButtonBar>
+      <TextArea fx:id="box" layoutX="133.0" layoutY="43.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="50.0" />
+      <TextField fx:id="word" layoutX="26.0" layoutY="50.0" promptText="Enter Text Here" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="50.0" />
+      <TextField fx:id="label" layoutX="26.0" layoutY="75.0" promptText="Enter Label Here" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="100.0" />
+    <Button layoutX="37.0" layoutY="175.0" mnemonicParsing="false" onAction="#handleBoxify" prefHeight="97.0" prefWidth="125.0" text="Boxify" />
+   </children>
+</AnchorPane>

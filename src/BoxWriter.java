@@ -4,9 +4,15 @@
  * Stores text box
  */
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 public class BoxWriter
 {
     private String word;
+    private String box;
+
+    //StringBuilder is used by multiple methods
     private StringBuilder boxBuilder;
 
     //puts a word in the center of the box
@@ -20,13 +26,29 @@ public class BoxWriter
     //is needed for the box to display correctly
     private int offset;
 
+    //in order for javafx fxml files to retrieve and update data
+    //we need to have StringProperty copies
+    private StringProperty boxFX;
+    private StringProperty wordFX;
+    private StringProperty labelFX;
+
+    public BoxWriter()
+    {
+        this(null,null);
+    }
+
     public BoxWriter(String word, String label)
     {
         this.word = word;
         this.label = label;
         boxBuilder = new StringBuilder();
+        box = null;
         spacing = 2;
         offset = 10;
+
+        boxFX = new SimpleStringProperty();
+        wordFX = new SimpleStringProperty(word);
+        labelFX = new SimpleStringProperty(label);
     }
 
     //creates the "text box"
@@ -116,6 +138,9 @@ public class BoxWriter
 
         spaces(offset);
         spaceWords(1);
+
+        this.box = boxBuilder.toString();
+        this.boxFX = new SimpleStringProperty(box);
     }
 
     //creates n amount of spaces
@@ -152,9 +177,35 @@ public class BoxWriter
         }
     }
 
+    public String getBoxFX() {
+        return boxFX.get();
+    }
+
+    public StringProperty boxFXProperty() {
+        return boxFX;
+    }
+
+    public String getWordFX() {
+        return wordFX.get();
+    }
+
+    public StringProperty wordFXProperty() {
+        return wordFX;
+    }
+
+    public String getLabelFX() {
+        return labelFX.get();
+    }
+
+    public StringProperty labelFXProperty() {
+        return labelFX;
+    }
+
+    public void setWord(String word) { this.word = word; }
+
     public void setSpacing(int n) { spacing = n; }
 
     public void setOffset(int n) { offset = n; }
 
-    public String toString() { return boxBuilder.toString(); }
+    public String toString() { return box; }
 }

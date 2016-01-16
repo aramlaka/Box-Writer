@@ -2,51 +2,86 @@
  * Created by akhil on 1/15/2016.
  */
 
+import java.io.IOException;
+
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.StackPane;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Border;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
-import java.awt.*;
-import java.awt.datatransfer.Clipboard;
-import java.awt.datatransfer.StringSelection;
-import java.util.Scanner;
+public class Main extends Application {
 
-public class Main extends Application implements EventHandler<ActionEvent> {
-
-    Button boxMake;
-    Button copy;
-
-    public static void main(String[] args) {
-        launch(args);
-    }
+    private Stage primaryStage;
+    private BorderPane rootLayout;
+    private BoxWriter boxWriter;
 
     @Override
     public void start(Stage primaryStage) {
-        primaryStage.setTitle("Box Maker");
+        this.primaryStage = primaryStage;
+        this.primaryStage.setTitle("Box Maker");
 
-        boxMake = new Button("Boxify");
-        copy = new Button("Copy");
+        primaryStage.setResizable(false);
 
-        StackPane layout = new StackPane();
-        layout.getChildren().add(boxMake);
+        initRootLayout();
 
-        Scene scene = new Scene(layout,300,300);
-        primaryStage.setScene(scene);
-        primaryStage.show();
+        showBoxWriter();
     }
 
-    @Override
-    public void handle(ActionEvent event) {
-        if(event.getSource() == boxMake){
+    public void initRootLayout() {
+        try {
+            // Load root layout from fxml file.
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Main.class.getResource("RootLayout.fxml"));
+            rootLayout = (BorderPane) loader.load();
 
-        }
-
-        if(event.getSource() == copy){
-
+            // Show the scene containing the root layout.
+            Scene scene = new Scene(rootLayout);
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
+
+    /**
+     * Shows the person overview inside the root layout.
+     */
+    public void showBoxWriter() {
+        try {
+            // Load person overview.
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Main.class.getResource("BoxWriter.fxml"));
+            AnchorPane boxWriter = (AnchorPane) loader.load();
+            loader.setController(new BoxWriterController());
+
+            // Set person overview into the center of root layout.
+            rootLayout.setCenter(boxWriter);
+
+            // Give the controller access to the main app.
+            BoxWriterController controller = loader.getController();
+            controller.setMain(this);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public Stage getPrimaryStage() {
+        return primaryStage;
+    }
+
+    public String getBox(String word, String label)
+    {
+        boxWriter = new BoxWriter(word,label);
+        boxWriter.boxify();
+
+        return boxWriter.toString();
+    }
+
+    public static void main(String[] args) {launch(args);}
 }
