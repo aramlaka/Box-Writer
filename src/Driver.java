@@ -20,7 +20,7 @@ public class Driver
         System.out.print("\nEnter in some meme text (min 3 characters): ");
         word = input.nextLine();
 
-        System.out.print("\nAdd a label (leave blank for none): ");
+        System.out.print("Add a label (press enter for none): ");
         box = new BoxWriter(word,input.nextLine());
 
         System.out.print("Copy to clipboard? (Y/N): ");
