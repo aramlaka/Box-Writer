@@ -4,9 +4,6 @@
  * Stores text box
  */
 
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
-
 public class BoxWriter
 {
     private String word;
@@ -26,12 +23,6 @@ public class BoxWriter
     //is needed for the box to display correctly
     private int offset;
 
-    //in order for javafx fxml files to retrieve and update data
-    //we need to have StringProperty copies
-    private StringProperty boxFX;
-    private StringProperty wordFX;
-    private StringProperty labelFX;
-
     public BoxWriter()
     {
         this(null,null);
@@ -45,10 +36,6 @@ public class BoxWriter
         box = null;
         spacing = 2;
         offset = 10;
-
-        boxFX = new SimpleStringProperty();
-        wordFX = new SimpleStringProperty(word);
-        labelFX = new SimpleStringProperty(label);
     }
 
     //creates the "text box"
@@ -140,7 +127,6 @@ public class BoxWriter
         spaceWords(1);
 
         this.box = boxBuilder.toString();
-        this.boxFX = new SimpleStringProperty(box);
     }
 
     //creates n amount of spaces
@@ -177,29 +163,7 @@ public class BoxWriter
         }
     }
 
-    public String getBoxFX() {
-        return boxFX.get();
-    }
 
-    public StringProperty boxFXProperty() {
-        return boxFX;
-    }
-
-    public String getWordFX() {
-        return wordFX.get();
-    }
-
-    public StringProperty wordFXProperty() {
-        return wordFX;
-    }
-
-    public String getLabelFX() {
-        return labelFX.get();
-    }
-
-    public StringProperty labelFXProperty() {
-        return labelFX;
-    }
 
     public void setWord(String word) { this.word = word; }
 
