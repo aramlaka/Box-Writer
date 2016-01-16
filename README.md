@@ -3,6 +3,9 @@ Creates 3D "text boxes" using ASCII characters.
 
 Currently implementing JavaFX, a lot more work to do!
 
+Note: Boxes will look mis-shapen in the application, copy and paste them 
+in other locations (such as notepad) to get the full effect.
+
 Examples:
 
                  x  o  B     t  x  e  T
