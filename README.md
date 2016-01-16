@@ -20,7 +20,8 @@ Examples:
           B                    x x
           o                    ee
           x  o  B     t  x  e  T
-                                g  n  i  d  o  c     e  v  o  l     I
+          
+                      g  n  i  d  o  c     e  v  o  l     I
                      n                                     
                     i                                   l l
                    d                                   o  o
@@ -45,3 +46,4 @@ Examples:
           i                                   l l
           n                                     
           g  n  i  d  o  c     e  v  o  l     I
+ 
