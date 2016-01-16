@@ -2,10 +2,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
-
-import java.awt.*;
-import java.awt.datatransfer.Clipboard;
-import java.awt.datatransfer.StringSelection;
+import javafx.scene.input.Clipboard;
+import javafx.scene.input.ClipboardContent;
 
 /**
  * Created by akhil on 1/16/2016.
@@ -35,7 +33,8 @@ public class BoxWriterController
     }
 
     @FXML
-    private void handleBoxify() {
+    private void handleBoxify()
+    {
         BoxWriter tempBox = new BoxWriter(word.getText(),label.getText());
         tempBox.boxify();
 
@@ -43,16 +42,20 @@ public class BoxWriterController
     }
 
     @FXML
-    private void handleNew() {
+    private void handleNew()
+    {
         word.setText("");
         label.setText("");
         box.setText("");
     }
 
     @FXML
-    private void handleCopy() {
-        StringSelection stringSelection = new StringSelection(box.getText());
-        Clipboard clpbrd = Toolkit.getDefaultToolkit().getSystemClipboard();
-        clpbrd.setContents(stringSelection, null);
+    private void handleCopy()
+    {
+        Clipboard clpbrd = Clipboard.getSystemClipboard();
+        ClipboardContent clpbrdc = new ClipboardContent();
+        clpbrdc.putString(box.getText());
+        clpbrd.setContent(clpbrdc);
+
     }
 }
