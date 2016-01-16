@@ -5,49 +5,45 @@ Currently implementing JavaFX, a lot more work to do!
 
 Examples:
 
-                o  a  m  l  y  y  a
-               a                 yy
-              m                 y y
-             l                 l  l
-            y                 m   m
-           y                 a    a
-          a  y  y  l  m  a  o     o
-          y                 a    a
-          y                 m   m
-          l      meme       l  l
-          m                 y y
-          a                 yy
-          o  a  m  l  y  y  a
+                 x  o  B     t  x  e  T
+                o                    ee
+               B                    x x
+                                   t  t
+             t                         
+            x                    B    B
+           e                    o     o
+          T  e  x  t     B  o  x      x
+          e                    o     o
+          x                    B    B
+          t        Label            
+                               t  t
+          B                    x x
+          o                    ee
+          x  o  B     t  x  e  T
           
-                    P  M  U  T  S     T  '  N  A  C
-                   M                             AA
-                  U                             N N
-                 T                             '  '
-                S                             T   T
-                                                   
-              T                             S     S
-             '                             T      T
-            N                             U       U
-           A                             M        M
-          C  A  N  '  T     S  T  U  M  P         P
-          A                             M        M
-          N                             U       U
-          '                             T      T
-          T                             S     S
-                       Trump                  
-          S                             T   T
-          T                             '  '
-          U                             N N
-          M                             AA
-          P  M  U  T  S     T  '  N  A  C
-          
-              s  e  x  o  B
-             e           oo
-            x           x x
-           o           e  e
-          B  o  x  e  s   s
-          o           e  e
-          x           x x
-          e           oo
-          s  e  x  o  B
-          
+                      g  n  i  d  o  c     e  v  o  l     I
+                     n                                     
+                    i                                   l l
+                   d                                   o  o
+                  o                                   v   v
+                 c                                   e    e
+                                                           
+               e                                   c      c
+              v                                   o       o
+             o                                   d        d
+            l                                   i         i
+                                               n          n
+          I     l  o  v  e     c  o  d  i  n  g           g
+                                              n          n
+          l                                   i         i
+          o                                   d        d
+          v                                   o       o
+          e                                   c      c
+                          help                       
+          c                                   e    e
+          o                                   v   v
+          d                                   o  o
+          i                                   l l
+          n                                     
+          g  n  i  d  o  c     e  v  o  l     I
+ 
