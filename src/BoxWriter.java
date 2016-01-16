@@ -163,7 +163,13 @@ public class BoxWriter
         }
     }
 
+    public int getSpacing() {
+        return spacing;
+    }
 
+    public int getOffset() {
+        return offset;
+    }
 
     public void setWord(String word) { this.word = word; }
 
