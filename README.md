@@ -18,6 +18,7 @@ Examples:
           m                 y y
           a                 yy
           o  a  m  l  y  y  a
+          
                     P  M  U  T  S     T  '  N  A  C
                    M                             AA
                   U                             N N
@@ -39,6 +40,7 @@ Examples:
           U                             N N
           M                             AA
           P  M  U  T  S     T  '  N  A  C
+          
               s  e  x  o  B
              e           oo
             x           x x
